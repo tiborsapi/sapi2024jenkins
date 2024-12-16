@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  jenkins:
+    build: .
+    container_name: jenkins
+    network_mode: host
+    volumes:
+      - jenkins_home:/home/kisstibor/jenkins/jenkins_home # Persist Jenkins data
+      - /var/run/docker.sock:/var/run/docker.sock # Enable Docker in Jenkins
+    environment:
+      JENKINS_OPTS: --httpPort=8080
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+
+volumes:
+  jenkins_home:
+
