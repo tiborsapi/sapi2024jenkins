@@ -1,0 +1,1 @@
+docker exec -it postgres-container psql -U postgres -d furniture -c "CREATE SCHEMA FURNITURE;"
